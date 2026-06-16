@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# Django
+db.sqlite3
+
+# ML models
+*.bin
+*.pt
+*.safetensors
+
+# Node (if frontend uses it)
+node_modules/
+
+# OS
+.DS_Store
+
