@@ -83,6 +83,7 @@ const getSketchForIndex = (index) => {
   if (modulo === 1) return <BookWithQuillSVG />;
   return <BookWithLeavesSVG />;
 };
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -90,13 +91,13 @@ function App() {
   const [answer, setAnswer] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/books/")
+    fetch(`${API_BASE_URL}/books/`)
       .then(res => res.json())
       .then(data => setBooks(data));
   }, []);
 
   const askAI = async () => {
-    const res = await fetch("http://localhost:8000/ask/", {
+    const res = await fetch(`${API_BASE_URL}/ask/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
